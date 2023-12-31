@@ -1,5 +1,4 @@
 pipeline {
-    agent { label 'master'}
     stages {
         stage('Checkout') {
             steps {
@@ -8,17 +7,17 @@ pipeline {
         }
          stage('Install package') {
             steps {
-                bat npm i 
+                bat 'npm i' 
             }
         }
          stage('Build') {
             steps {
-                bat npm run build
+                bat 'npm run build'
             }
         }
          stage('Deploy') {
             steps {
-                bat npm run start
+                bat 'npm run start'
             }
         }
     }
