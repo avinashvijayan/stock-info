@@ -3,27 +3,22 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch 'master' url:"https://github.com/avinashvijayan/stock-info.git"
+                git branch:'master', url:"https://github.com/avinashvijayan/stock-info.git"
             }
         }
          stage('Install package') {
             steps {
-                batch npm i 
+                npm i 
             }
         }
          stage('Build') {
             steps {
-
-            }
-        }
-         stage('Test') {
-            steps {
-
+                npm run build
             }
         }
          stage('Deploy') {
             steps {
-
+                npm run start
             }
         }
     }
